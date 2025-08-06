@@ -1,0 +1,5 @@
+http://192.168.1.1/login
+http://example-login.com
+https://secure-login-paypal.com
+http://phishing-site.com@evil.com
+https://github.com
