@@ -1,4 +1,4 @@
-name: SonarQube Cloud Scan (CLI)
+name: SonarCloud Scan (CLI)
 
 on:
   push:
@@ -23,8 +23,7 @@ jobs:
       - name: Install sonar-scanner
         run: npm install -g sonar-scanner
 
-      - name: Run SonarQube Scan
+      - name: Run SonarCloud Scan
         run: sonar-scanner
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
