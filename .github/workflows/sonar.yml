@@ -13,16 +13,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # better issue tracking on PRs
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"   # ✅ This forces use of actions/cache@v4 (supported)
 
-      # Explicitly force the latest cache action
-      - name: Setup caching
-        uses: actions/cache@v4
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: SonarQube Cloud Scan
         uses: SonarSource/sonarqube-scan-action@v4.1.0
