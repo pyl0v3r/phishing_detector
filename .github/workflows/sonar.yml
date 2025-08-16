@@ -20,9 +20,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      # (Optional) install dependencies if your repo needs them for analysis hooks
-      # - name: Install deps
-      #   run: pip install -r requirements.txt
+      # Explicitly force the latest cache action
+      - name: Setup caching
+        uses: actions/cache@v4
 
       - name: SonarQube Cloud Scan
         uses: SonarSource/sonarqube-scan-action@v4.1.0
