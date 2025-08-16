@@ -1,6 +1,10 @@
 
 # 🛡️ Phishing URL Detection Tool (Python CLI)
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=pyl0v3r_phishing_detector)](https://sonarcloud.io/summary/new_code?id=pyl0v3r_phishing_detector)
+
+[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=pyl0v3r_phishing_detector)
+
 ## 🔍 Overview
 
 This lightweight command-line tool helps detect potentially malicious or phishing URLs based on common red flags and structural analysis. Built in Python, it’s designed for cybersecurity learners and practitioners to bridge the gap between theoretical knowledge and hands-on detection techniques.
