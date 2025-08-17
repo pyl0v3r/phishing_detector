@@ -1,8 +1,6 @@
 from indicators.url_checks import check_url_indicators
 from indicators.whois_checks import check_domain_age
-
-API_KEY = "my_super_secret_api_key"  # Intentional security flaw
-
+from sast_tools_test import vulns
 
 def analyze_url(url):
     print(f"Analyzing URL: {url}")
@@ -21,3 +19,4 @@ def analyze_url(url):
 if __name__ == "__main__":
     user_url = input("Enter a URL to analyze: ").strip()
     analyze_url(user_url)
+    vulns()

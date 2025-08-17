@@ -27,3 +27,25 @@ jobs:
         run: sonar-scanner
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Run Bandit (Python SAST)
+        run: |
+          pip install bandit
+          bandit -r . -x venv,.venv -f json -o bandit-report.json || true
+
+      - name: Run Semgrep (OWASP rules)
+        run: |
+          pip install semgrep
+          semgrep --config=p/ci --json \
+            --exclude venv \
+            --exclude .venv \
+            --exclude __pycache__ \
+            > semgrep-report.json || true
+
+      - name: Upload security reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports
+          path: |
+            bandit-report.json
+            semgrep-report.json
