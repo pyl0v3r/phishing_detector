@@ -1,0 +1,18 @@
+rules:
+  - id: python-eval-detected
+    pattern: eval($X)
+    message: "Detected the use of eval(). It may lead to code injection vulnerabilities."
+    severity: ERROR
+    languages: [python]
+
+  - id: insecure-md5
+    pattern: hashlib.md5($X)
+    message: "MD5 is insecure. Consider using hashlib.sha256 or bcrypt for hashing."
+    severity: WARNING
+    languages: [python]
+
+  - id: hardcoded-secret
+    pattern: $VAR = "$SECRET"
+    message: "Hardcoded secret detected. Consider using environment variables or secret managers."
+    severity: WARNING
+    languages: [python]

@@ -35,12 +35,13 @@ jobs:
 
       - name: Run Semgrep (OWASP rules)
         run: |
+          # Semgrep
           pip install semgrep
-          semgrep --config=p/ci --json \
-            --exclude venv \
-            --exclude .venv \
-            --exclude __pycache__ \
-            > semgrep-report.json || true
+          semgrep --config semgrep_rules.yaml \
+                  --exclude venv \
+                  --exclude .venv \
+                  --exclude __pycache__ \
+                  . --json > semgrep-report.json || true
 
       - name: Upload security reports
         uses: actions/upload-artifact@v4
